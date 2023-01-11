@@ -1,0 +1,32 @@
+<table mat-table [dataSource]="readers" class="mat-elevation-z8">
+    <!-- Position Column -->
+     <ng-container matColumnDef="nSocio">
+       <th mat-header-cell *matHeaderCellDef>Número de Socio</th>
+       <td mat-cell *matCellDef="let element"> {{element.nSocio}}</td>
+     </ng-container>
+   
+     <!-- Name Column -->
+     <ng-container matColumnDef="nombreLector">
+       <th mat-header-cell *matHeaderCellDef> Nombre Lector </th>
+       <td mat-cell *matCellDef="let element"> {{element.nombreLector}} </td>
+     </ng-container>
+   
+     <!-- Weight Column -->
+     <ng-container matColumnDef="telefono">
+       <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+       <td mat-cell *matCellDef="let element"> {{element.telefono}}</td>
+     </ng-container>
+   
+     <!-- Symbol Column -->
+     <ng-container matColumnDef="direccion">
+         <th mat-header-cell *matHeaderCellDef> Dirección </th>
+         <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+       </ng-container>
+       <ng-container matColumnDef="nLibrosPrestados">
+         <th mat-header-cell *matHeaderCellDef> Número Libros Prestados </th>
+         <td mat-cell *matCellDef="let element"> {{element.nLibrosPrestados}} </td>
+       </ng-container>
+                
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
