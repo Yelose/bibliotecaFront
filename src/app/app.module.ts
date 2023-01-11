@@ -1,16 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// componentes de Angular Material: están en modules/material
+
+//Este hace que te puedas comunicar con HTTP, sin esto, no funciona el main service.
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './pages/home/home.component';
+import { NewBookComponent } from './pages/new-book/new-book.component';
+import { NewReaderComponent } from './pages/new-reader/new-reader.component';
+import { MaterialModule } from './modules/material/material.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NewBookComponent,
+    NewReaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
