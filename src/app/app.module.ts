@@ -12,13 +12,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { NewBookComponent } from './pages/new-book/new-book.component';
 import { NewReaderComponent } from './pages/new-reader/new-reader.component';
 import { MaterialModule } from './modules/material/material.module';
+import { BooksComponent } from './pages/home/books/books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NewBookComponent,
-    NewReaderComponent
+    NewReaderComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
