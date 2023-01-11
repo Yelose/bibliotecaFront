@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BookService } from './book.service';
+import { ReaderService } from './reader.service';
 
 
 @Injectable({
@@ -12,8 +13,10 @@ export class MainService {
   constructor(
     public http: HttpClient,
     public book: BookService,
+    public reader: ReaderService
   ) {
     this.book.service = this;
+    this.reader.service = this;
     this.URL = 'http://localhost:8080/api';
   }
 
