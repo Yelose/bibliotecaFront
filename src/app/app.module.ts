@@ -5,6 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //Este hace que te puedas comunicar con HTTP, sin esto, no funciona el main service.
 import { HttpClientModule } from '@angular/common/http';
+//formulario reactivo ngModel
+import { ReactiveFormsModule} from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +19,7 @@ import { BooksComponent } from './pages/home/books/books.component';
 import { ReadersComponent } from './pages/home/readers/readers.component';
 import { DetailsBookComponent } from './pages/details-book/details-book.component';
 import { DetailsReaderComponent } from './pages/details-reader/details-reader.component';
+
 
 @NgModule({
   declarations: [

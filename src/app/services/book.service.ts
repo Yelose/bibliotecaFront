@@ -24,7 +24,6 @@ export class BookService {
 
   public async DeleteBook(id: number): Promise<{message: string}>{
     return await this.service.HttpDelete(`/libros/${id}`);
-    console.log("mensaje");
   }
 
   public async UpdateBook(book: BookModel): Promise<BookModel> {
