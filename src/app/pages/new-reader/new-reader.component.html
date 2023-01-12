@@ -1,1 +1,29 @@
-<p>new-reader works!</p>
+<div class="container">
+    <form [formGroup]="formReader" (ngSubmit)="prueba()">
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Nombre del lector</mat-label>
+            <input matInput required value={{reader.nombreLector}} formControlName="nombreLector">
+            <mat-error *ngIf="nombreLector?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Teléfono</mat-label>
+            <input matInput required value={{reader.telefono}} formControlName="telefono">
+            <mat-error *ngIf="telefono?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Dirección</mat-label>
+            <input matInput required value={{reader.direccion}} formControlName="direccion">
+            <mat-error *ngIf="direccion?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Número de libros en préstamo</mat-label>
+            <input matInput required value={{reader.nLibrosPrestados}} formControlName="nLibrosPrestados">
+            <mat-error *ngIf="nLibrosPrestados?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+    </form>
+    <div class="buttons">
+        <button mat-raised-button color="primary">Crear Lector</button>
+        <button mat-raised-button color="accent" routerLink="/home">Volver</button>
+        <button mat-stroked-button type="submit">Prueba</button>
+    </div>
+</div>

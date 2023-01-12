@@ -36,7 +36,9 @@ import { DetailsReaderComponent } from './pages/details-reader/details-reader.co
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule, HttpClientModule
+    MaterialModule, 
+    HttpClientModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

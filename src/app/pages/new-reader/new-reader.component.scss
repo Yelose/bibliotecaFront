@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10vh 3vw;
+    form {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3vw;
+
+        mat-form-field {
+            min-width: 300px;
+        }
+    }
+    button {
+        width: fit-content;
+    }
+    .buttons {
+        display: flex;
+        gap: 2vw;
+    }
+
+}

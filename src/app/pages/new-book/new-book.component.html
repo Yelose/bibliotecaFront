@@ -1,33 +1,39 @@
-<form [formGroup]="formBook" (ngSubmit)="addBook()" >
-    <mat-form-field floatLabel="auto" color="primary" appearance="fill">
-        <mat-label>Nombre del libro</mat-label>
-        <input matInput required value={{book.nombreLibro}} formControlName="nombreLibro">
-        <mat-hint>El libro tiene que tener un nombre</mat-hint>
-    </mat-form-field>
-    <mat-form-field floatLabel="auto" color="primary" appearance="fill">
-        <mat-label>Género</mat-label>
-        <input matInput required value={{book.genero}} formControlName="genero">
-        <mat-hint>Comedia, drama...</mat-hint>
-    </mat-form-field>
-    <mat-form-field floatLabel="auto" color="primary" appearance="fill">
-        <mat-label>Editorial</mat-label>
-        <input matInput required value={{book.editorial}} formControlName="editorial">
-        <mat-hint>Editorial del libro</mat-hint>
-    </mat-form-field>
-    <mat-form-field floatLabel="auto" color="primary" appearance="fill">
-        <mat-label>Año</mat-label>
-        <input matInput required value={{book.anyo}} formControlName="anyo">
-        <mat-hint>Año de la edición</mat-hint>
-    </mat-form-field>
-    <mat-form-field floatLabel="auto" color="primary" appearance="fill">
-        <mat-label>Nombre del Autor</mat-label>
-        <input matInput required value={{book.autor}} formControlName="autor">
-        <mat-hint>Autor del libro</mat-hint>
-    </mat-form-field>
-    <mat-form-field floatLabel="auto" color="primary" appearance="fill">
-        <mat-label>Número de copias</mat-label>
-        <input matInput required value={{book.numeroCopias}} formControlName="numeroCopias">
-        <mat-hint>Número de libros iguales</mat-hint>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Crear Libro</button>
-</form>
+<div class="container">
+    <form [formGroup]="formBook" (ngSubmit)="addBook()">
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Nombre del libro</mat-label>
+            <input matInput required value={{book.nombreLibro}} formControlName="nombreLibro">
+            <mat-error *ngIf="nombreLibro?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Género</mat-label>
+            <input matInput required value={{book.genero}} formControlName="genero">
+            <mat-error *ngIf="genero?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Editorial</mat-label>
+            <input matInput required value={{book.editorial}} formControlName="editorial">
+            <mat-error *ngIf="editorial?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Año</mat-label>
+            <input matInput required value={{book.anyo}} formControlName="anyo">
+            <mat-error *ngIf="anyo?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Nombre del Autor</mat-label>
+            <input matInput required value={{book.autor}} formControlName="autor">
+            <mat-error *ngIf="autor?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Número de copias</mat-label>
+            <input matInput required value={{book.numeroCopias}} formControlName="numeroCopias">
+            <mat-error *ngIf="numeroCopias?.errors?.['required']">Este campo es obligatorio</mat-error>
+        </mat-form-field>
+    </form>
+    <div class="buttons">
+        <button mat-raised-button color="primary" type="submit">Crear Libro</button>
+        <button mat-raised-button color="accent" routerLink="/home">Volver</button>
+    </div>
+
+</div>
