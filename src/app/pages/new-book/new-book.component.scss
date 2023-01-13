@@ -11,13 +11,13 @@
         mat-form-field {
             min-width: 300px;
         }
+        .buttons {
+            display: flex;
+            gap: 2vw;
+        }
     }
     button {
         width: fit-content;
-    }
-    .buttons {
-        display: flex;
-        gap: 2vw;
     }
 }
 

@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="formReader" (ngSubmit)="prueba()">
+    <form [formGroup]="formReader" (ngSubmit)="addReader()">
         <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Nombre del lector</mat-label>
             <input matInput required value={{reader.nombreLector}} formControlName="nombreLector">
@@ -20,10 +20,9 @@
             <input matInput required value={{reader.nLibrosPrestados}} formControlName="nLibrosPrestados">
             <mat-error *ngIf="nLibrosPrestados?.errors?.['required']">Este campo es obligatorio</mat-error>
         </mat-form-field>
+        <div class="buttons">
+            <button mat-raised-button color="primary" type="submit">Crear Lector</button>
+            <button mat-raised-button color="accent" routerLink="/home">Volver</button>
+        </div>
     </form>
-    <div class="buttons">
-        <button mat-raised-button color="primary">Crear Lector</button>
-        <button mat-raised-button color="accent" routerLink="/home">Volver</button>
-        <button mat-stroked-button type="submit">Prueba</button>
-    </div>
 </div>

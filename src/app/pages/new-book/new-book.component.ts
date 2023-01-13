@@ -46,12 +46,13 @@ export class NewBookComponent {
     return this.formBook.get('numeroCopias');
   }
 
-  async addBook(): Promise<void> {
-
+  async addBook(): Promise<void>{
+    console.log("Hago algo ¿o qué?")
     const { nombreLibro, genero, editorial, anyo, autor, numeroCopias} = this.formBook.value;
     if(!this.formBook.valid || !nombreLibro || !genero || !editorial || !anyo || !autor || !numeroCopias){
       return;
     }
+
     await this.service.book.CreateBook(this.formBook.value)
     this.router.navigate(["home"])
   }

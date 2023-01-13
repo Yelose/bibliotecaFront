@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+//formulario reactivo ngModel
+import { ReactiveFormsModule} from '@angular/forms';
 
 // componentes de Angular Material: están en modules/material
 
 //Este hace que te puedas comunicar con HTTP, sin esto, no funciona el main service.
 import { HttpClientModule } from '@angular/common/http';
-//formulario reactivo ngModel
-import { ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
