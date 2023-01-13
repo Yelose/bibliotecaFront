@@ -37,9 +37,6 @@ export class NewReaderComponent {
     return this.formReader.get('nLibrosPrestados');
   }
 
-  prueba(){
-    console.log("Esto es una prueba")
-  }
   async addReader(): Promise<void> {
     console.log("¿me oyes?")
     const { nombreLector, telefono, direccion, nLibrosPrestados} = this.formReader.value;

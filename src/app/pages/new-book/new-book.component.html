@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="formBook" (ngSubmit)="addBook()">
+    <form [formGroup]="formBook" (ngSubmit)="saveBook()">
         <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Nombre del libro</mat-label>
             <input matInput required value={{book.nombreLibro}} formControlName="nombreLibro">
@@ -31,7 +31,9 @@
             <mat-error *ngIf="numeroCopias?.errors?.['required']">Este campo es obligatorio</mat-error>
         </mat-form-field>
         <div class="buttons">
-            <button mat-raised-button color="primary" type="submit">Crear Libro</button>
+            <button *ngIf="book.id === 0" mat-raised-button color="primary" type="submit">Crear Libro</button>
+            <button *ngIf="book.id != 0" mat-raised-button color="primary" type="submit">Editar Libro</button>
+
             <button mat-raised-button color="accent" routerLink="/home">Volver</button>
         </div>
     </form>

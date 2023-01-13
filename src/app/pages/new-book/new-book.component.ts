@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import BookModel from 'src/app/models/bookModel';
 import { MainService } from 'src/app/services/main-service.service';
 
@@ -9,12 +9,13 @@ import { MainService } from 'src/app/services/main-service.service';
   templateUrl: './new-book.component.html',
   styleUrls: ['./new-book.component.scss']
 })
-export class NewBookComponent {
+export class NewBookComponent implements OnInit {
   public formBook: FormGroup;
   public book: BookModel;
   
-  constructor(private service: MainService, private router: Router, public fb: FormBuilder) {
+  constructor(private service: MainService, private router: Router, public fb: FormBuilder, private route: ActivatedRoute) {
     this.book = new BookModel;
+    this.book.id = 0;
     this.formBook = fb.group(
       {
         nombreLibro: ["", Validators.required],
@@ -24,10 +25,10 @@ export class NewBookComponent {
         autor: ["", Validators.required],
         numeroCopias: ["", Validators.required]
       }
-    )
-  }
-
-  get nombreLibro() {
+      )
+    }
+    
+    get nombreLibro() {
     return this.formBook.get('nombreLibro');
   }
   get genero() {
@@ -46,15 +47,23 @@ export class NewBookComponent {
     return this.formBook.get('numeroCopias');
   }
 
-  async addBook(): Promise<void>{
-    console.log("Hago algo ¿o qué?")
+  async saveBook(): Promise<void>{
     const { nombreLibro, genero, editorial, anyo, autor, numeroCopias} = this.formBook.value;
     if(!this.formBook.valid || !nombreLibro || !genero || !editorial || !anyo || !autor || !numeroCopias){
       return;
     }
-
-    await this.service.book.CreateBook(this.formBook.value)
+    if (this.book.id === 0){
+      await this.service.book.CreateBook(this.formBook.value)
+    } else {
+      await this.service.book.UpdateBook(this.formBook.value)
+    }
     this.router.navigate(["home"])
   }
-
+  async ngOnInit(): Promise<void> {
+    let id = this.route.snapshot.params['id'];
+    console.log(id)
+    if (id !=0) {
+      this.book = await this.service.book.GetBook(id);
+    }
+  }
 }

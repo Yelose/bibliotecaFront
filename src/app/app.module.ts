@@ -30,7 +30,7 @@ import { DetailsReaderComponent } from './pages/details-reader/details-reader.co
     BooksComponent,
     ReadersComponent,
     DetailsBookComponent,
-    DetailsReaderComponent
+    DetailsReaderComponent,
   ],
   imports: [
     BrowserModule,
